@@ -3,6 +3,7 @@ package com.xiaoma.sys.common;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import java.util.Date;
  * 基础类
  * @author mjh
  */
+@Data
 public class BaseEntity {
     /**
      *
