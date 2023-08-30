@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoma.sys.mapper.SysPermissionMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiaoma.sys.entity.SysPermissionEntity">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="permissionCode" column="permission_code" jdbcType="VARCHAR"/>
+            <result property="permissionName" column="permission_name" jdbcType="VARCHAR"/>
+            <result property="creator" column="creator" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updater" column="updater" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="deleteStatus" column="delete_status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,permission_code,permission_name,
+        creator,create_time,updater,
+        update_time,delete_status
+    </sql>
+</mapper>
