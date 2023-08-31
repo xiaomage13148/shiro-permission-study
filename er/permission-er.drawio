@@ -1,0 +1,159 @@
+<mxfile host="Electron" modified="2023-08-30T09:22:21.100Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="oUw4WGdTwtdyOyX83ZUW" version="21.6.5" type="device" pages="2">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="权限相关E-R图">
+    <mxGraphModel dx="1235" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="y79C3EfgOkYB2w6zPVat-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-1" target="y79C3EfgOkYB2w6zPVat-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-1" target="y79C3EfgOkYB2w6zPVat-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-1" value="用户表（sys_user）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-2" value="password（密码）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-3" value="username（名称）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-4" target="y79C3EfgOkYB2w6zPVat-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-4" value="角色表（sys_role）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-5" value="role_name（角色名称）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-14" target="y79C3EfgOkYB2w6zPVat-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-14" target="y79C3EfgOkYB2w6zPVat-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-35" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-14" target="y79C3EfgOkYB2w6zPVat-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-36" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-14" target="y79C3EfgOkYB2w6zPVat-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-14" value="用户_角色关联表（sys_user_role）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-15" value="user_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="415" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-16" value="role_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="415" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-21" target="y79C3EfgOkYB2w6zPVat-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-26" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-21" target="y79C3EfgOkYB2w6zPVat-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-21" value="sys_permission（权限表）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="315" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-22" value="permission_name&lt;br&gt;（权限名称）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="210" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-23" value="permission_code&lt;br&gt;（权限代码）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-32" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-27" target="y79C3EfgOkYB2w6zPVat-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-27" target="y79C3EfgOkYB2w6zPVat-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-34" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-27" target="y79C3EfgOkYB2w6zPVat-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-27" value="sys_route（路由表）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-28" value="route_name（路由名称）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="400" width="80" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-29" value="route_value（路由路径）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="400" width="80" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-31" value="route_component（路由组件）" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="375" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-40" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-37" target="y79C3EfgOkYB2w6zPVat-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-41" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-37" target="y79C3EfgOkYB2w6zPVat-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-42" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-37" target="y79C3EfgOkYB2w6zPVat-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-43" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-37" target="y79C3EfgOkYB2w6zPVat-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-37" value="sys_role_route（角色路由关联表）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-38" value="role_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="710" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-39" value="route_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="445" y="710" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-48" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-44" target="y79C3EfgOkYB2w6zPVat-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-49" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-44" target="y79C3EfgOkYB2w6zPVat-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-50" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-44" target="y79C3EfgOkYB2w6zPVat-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-51" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="y79C3EfgOkYB2w6zPVat-44" target="y79C3EfgOkYB2w6zPVat-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-44" value="sys_permission_route（权限路由关联表）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="333" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-45" value="permission_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="967.5" y="215" width="85" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y79C3EfgOkYB2w6zPVat-46" value="route_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="975" y="450" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rL03C0LI7vigStBF2z1u-1" target="rL03C0LI7vigStBF2z1u-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rL03C0LI7vigStBF2z1u-1" target="rL03C0LI7vigStBF2z1u-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="rL03C0LI7vigStBF2z1u-1" target="y79C3EfgOkYB2w6zPVat-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-1" value="超级管理员表（sys_super_admin）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-2" value="user_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="30" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rL03C0LI7vigStBF2z1u-3" value="user_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="30" width="70" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="SFzMLJEP7XG25DSfb-5k" name="文章实体类E-R图">
+    <mxGraphModel dx="1050" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

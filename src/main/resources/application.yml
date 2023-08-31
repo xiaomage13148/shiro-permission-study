@@ -1,1 +1,62 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      #      最大和最小的线程数
+      max: 1000
+      min-spare: 30
+  port: 8099
+  servlet:
+    session:
+      cookie:
+        #        防止窃取cookie
+        http-only: true
+# spring 相关
+spring:
+  application:
+    name: shiro-permission
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
+  # jackson时间格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  mvc:
+    pathmatch:
+      #      路径匹配规则
+      matching-strategy: ANT_PATH_MATCHER
+  servlet:
+    multipart:
+      #      最大上传的最大值
+      max-file-size: 100MB
+      #      请求中数据的最大值
+      max-request-size: 100MB
+      #      启用文件上传
+      enabled: true
 
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.xiaoma.sys.entity
+  global-config:
+    #数据库相关配置
+    db-config:
+      #主键类型
+      id-type: ASSIGN_ID
+    banner: false
+  #原生配置
+  configuration:
+#    将数据库的下划线,转化为驼峰命名
+    map-underscore-to-camel-case: true
+#    是否启用缓存
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+  configuration-properties:
+    prefix:
+    blobType: BLOB
+    boolValue: TRUE

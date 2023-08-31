@@ -1,10 +1,14 @@
 package com.xiaoma.sys.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiaoma.sys.entity.SysUserEntity;
 import com.xiaoma.sys.service.SysUserService;
 import com.xiaoma.sys.mapper.SysUserMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 /**
 * @author 15234
@@ -15,6 +19,14 @@ import org.springframework.stereotype.Service;
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUserEntity>
     implements SysUserService{
 
+    @Override
+    public Boolean checkSysUserIsExist(String username) {
+        SysUserEntity sysUserEntity = this.getOne(Wrappers.lambdaQuery(SysUserEntity.class).eq(SysUserEntity::getUsername , username));
+        if (ObjectUtils.isEmpty(sysUserEntity)) {
+            return false; // 为空 不存在
+        }
+        return true;  // 不为空 存在
+    }
 }
 
 

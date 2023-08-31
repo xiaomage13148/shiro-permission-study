@@ -9,5 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-08-30 16:33:32
 */
 public interface SysUserService extends IService<SysUserEntity> {
-
+    /**
+     * 检查账户名称是否已经存在
+     */
+    Boolean checkSysUserIsExist(String username);
 }
