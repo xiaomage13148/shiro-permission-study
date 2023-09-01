@@ -2,6 +2,21 @@ drop database if exists `xiaomage_permission`;
 create database `xiaomage_permission`;
 use xiaomage_permission;
 
+# 用户Token表
+drop table if exists `sys_token`;
+create table `sys_token`
+(
+    `id`          bigint       not null,
+    `user_id`     bigint       not null comment '用户id',
+    `token`       varchar(100) NOT NULL COMMENT 'token',
+    `expire_date` datetime COMMENT '过期时间',
+    `update_date` datetime COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX (`user_id`),
+    UNIQUE INDEX (`token`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='用户Token表';
+
 # 用户表
 drop table if exists `sys_user`;
 create table `sys_user`
