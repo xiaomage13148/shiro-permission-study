@@ -26,8 +26,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("权限项目-api")
-            .description("小马哥的权限项目api接口")
+            .title("API接口")
+            .description("此项目的API接口")
             .version("1.0")
             .build();
     }

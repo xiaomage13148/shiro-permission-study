@@ -83,6 +83,13 @@
             <version>2.9.2</version>
         </dependency>
 
+        <!--加密-->
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,5 +1,6 @@
 package com.xiaoma.sys.handler;
 
+import com.xiaoma.sys.exception.MyException;
 import com.xiaoma.sys.utils.CodeEnum;
 import com.xiaoma.sys.utils.ResultInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,25 @@ import java.net.BindException;
 public class GlobalExceptionHandler {
 
 //    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    /**
+     * 处理自定义异常
+     */
+    @ExceptionHandler(MyException.class)
+    public ResultInfo<Object> myException(MyException ex) {
+        log.info("自定义异常 , 错误信息: {}", ex.getMsg());
+        return new ResultInfo<>(ex.getCode(), ex.getMsg());
+    }
+
+    /**
+     * Java安全管理器异常
+     */
+    @ExceptionHandler(IllegalAccessException.class)
+    public ResultInfo<Object> illegalAccessException(IllegalAccessException ex) {
+        log.info("Java安全管理器异常 ,错误信息: {}", ex.getMessage());
+        return new ResultInfo<>(CodeEnum.SECURITY_MANAGEMENT_ERROR.getCode(),
+                CodeEnum.SECURITY_MANAGEMENT_ERROR.getDescription());
+    }
 
     /**
      * 传入的参数为空异常

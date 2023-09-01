@@ -2,6 +2,7 @@ package com.xiaoma.sys.service;
 
 import com.xiaoma.sys.entity.SysUserEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiaoma.sys.vo.SysUserLoginByUsernameVo;
 
 /**
 * @author 15234
@@ -13,4 +14,10 @@ public interface SysUserService extends IService<SysUserEntity> {
      * 检查账户名称是否已经存在
      */
     Boolean checkSysUserIsExist(String username);
+
+    /**
+     * 校验用户的输入是否正确
+     */
+    SysUserEntity checkUserInputIsTrue(SysUserLoginByUsernameVo vo);
+
 }
