@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PasswordUtilsTest {
+class PasswordUtilTest {
     @Test
     public void test1() {
-        String hashPassword = PasswordUtils.hashPassword("Wo610783");
+        String hashPassword = PasswordUtil.hashPassword("Wo610783");
         System.out.println(hashPassword);
-        System.out.println(PasswordUtils.verifyPassword("Wo610783" , hashPassword));
+        System.out.println(PasswordUtil.verifyPassword("Wo610783" , hashPassword));
     }
 }

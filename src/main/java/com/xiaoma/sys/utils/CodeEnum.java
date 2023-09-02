@@ -9,6 +9,7 @@ public enum CodeEnum {
     EMPTY_ERROR("00404", "参数为空异常"),
     DIRTY_DATA_ERROR("00600", "脏数据异常"),
     SECURITY_MANAGEMENT_ERROR("00601", "安全管理器异常"),
+    ENCODE_ERROR("00602" , "编码异常") ,
     USER_ERROR_0001("A0001", "用户端错误"),
     USER_ERROR_A0100("A0100", "用户注册错误"),
     USER_ERROR_A0101("A0101", "用户未同意隐私协议"),

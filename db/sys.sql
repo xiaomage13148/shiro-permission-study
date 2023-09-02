@@ -8,9 +8,10 @@ create table `sys_token`
 (
     `id`          bigint       not null,
     `user_id`     bigint       not null comment '用户id',
-    `token`       varchar(100) NOT NULL COMMENT 'token',
+    `token`       varchar(512) NOT NULL COMMENT 'token',
     `expire_date` datetime COMMENT '过期时间',
     `update_date` datetime COMMENT '更新时间',
+    `create_date` datetime comment '初次登录时间',
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`user_id`),
     UNIQUE INDEX (`token`)
@@ -21,16 +22,16 @@ create table `sys_token`
 drop table if exists `sys_user`;
 create table `sys_user`
 (
-    `id`            bigint        not null,
-    `username`      varchar(255)  not null comment '用户名',
-    `password`      varchar(255)  not null comment '密码',
-    `nickname`      varchar(255)  not null comment '昵称',
-    `head_image`    varchar(1023) not null comment '头像',
-    `creator`       varchar(255)       default null comment '创建人',
-    `create_time`   timestamp     null default current_timestamp comment '创建时间',
-    `updater`       varchar(255)       default null comment '修改人',
-    `update_time`   timestamp     null default current_timestamp on update current_timestamp comment '修改时间',
-    `delete_status` varchar(1)         default '1' comment '是否有效  1有效  2无效',
+    `id`            bigint       not null,
+    `username`      varchar(255) not null comment '用户名',
+    `password`      varchar(255) not null comment '密码',
+    `nickname`      varchar(255) comment '昵称',
+    `head_image`    varchar(1023) comment '头像',
+    `creator`       varchar(255)      default null comment '创建人',
+    `create_time`   timestamp    null default current_timestamp comment '创建时间',
+    `updater`       varchar(255)      default null comment '修改人',
+    `update_time`   timestamp    null default current_timestamp on update current_timestamp comment '修改时间',
+    `delete_status` varchar(1)        default '1' comment '是否有效  1有效  2无效',
     primary key (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='用户表';

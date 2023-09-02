@@ -6,7 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
  * 密码工具类
  * @author mjh
  */
-public class PasswordUtils {
+public class PasswordUtil {
 
     /**
      * 加密密码

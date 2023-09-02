@@ -41,6 +41,11 @@ public class SysTokenEntity implements Serializable {
      */
     private Date updateDate;
 
+    /**
+     * 初次登录时间
+     */
+    private Date createDate;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

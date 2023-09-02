@@ -3,6 +3,7 @@ package com.xiaoma.sys.service;
 import com.xiaoma.sys.entity.SysUserEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiaoma.sys.vo.SysUserLoginByUsernameVo;
+import com.xiaoma.sys.vo.SysUserRegisterVo;
 
 /**
 * @author 15234
@@ -19,5 +20,10 @@ public interface SysUserService extends IService<SysUserEntity> {
      * 校验用户的输入是否正确
      */
     SysUserEntity checkUserInputIsTrue(SysUserLoginByUsernameVo vo);
+
+    /**
+     * 用户注册完之后不返回信息
+     */
+    void userRegisterWithoutInfo(SysUserRegisterVo vo);
 
 }

@@ -9,7 +9,8 @@ import com.xiaoma.sys.exception.MyException;
 import com.xiaoma.sys.service.SysTokenService;
 import com.xiaoma.sys.mapper.SysTokenMapper;
 import com.xiaoma.sys.utils.CodeEnum;
-import com.xiaoma.sys.utils.PasswordUtils;
+import com.xiaoma.sys.utils.JWTUtil;
+import com.xiaoma.sys.utils.PasswordUtil;
 import com.xiaoma.sys.validation.ObjectValidator;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -19,13 +20,13 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
-* @author 15234
-* @description 针对表【sys_token(用户Token表)】的数据库操作Service实现
-* @createDate 2023-09-01 14:22:26
-*/
+ * @author 15234
+ * @description 针对表【sys_token(用户Token表)】的数据库操作Service实现
+ * @createDate 2023-09-01 14:22:26
+ */
 @Service
 public class SysTokenServiceImpl extends ServiceImpl<SysTokenMapper, SysTokenEntity>
-    implements SysTokenService{
+        implements SysTokenService {
 
     // 12小时之后过期
     private static final Integer EXPIRE = 3600 * 12;
@@ -48,14 +49,16 @@ public class SysTokenServiceImpl extends ServiceImpl<SysTokenMapper, SysTokenEnt
 
         if (ObjectUtils.isEmpty(tokenEntity)) {
             // 没有生成过token
-            token = PasswordUtils.hashPassword(UUID.randomUUID().toString());
+//            token = PasswordUtil.hashPassword(UUID.randomUUID().toString());
+            token = JWTUtil.createToken(user.getUsername(), expireDate);
             SysTokenEntity sysTokenEntity = new SysTokenEntity();
             sysTokenEntity.setUserId(user.getId());
             sysTokenEntity.setToken(token);
             sysTokenEntity.setUpdateDate(now);
             sysTokenEntity.setExpireDate(expireDate);
+            sysTokenEntity.setCreateDate(now);
             baseMapper.insert(sysTokenEntity);
-        }else {
+        } else {
             // 检验对象中的属性是否全部存在 , 排除脏数据的影响
             if (!ObjectValidator.validateObjectFields(tokenEntity)) {
                 // 存在脏数据
@@ -66,8 +69,9 @@ public class SysTokenServiceImpl extends ServiceImpl<SysTokenMapper, SysTokenEnt
             // 判断是否过期
             if (tokenEntity.getExpireDate().getTime() < System.currentTimeMillis()) {
                 // 已经过期 , 重新生成token
-                token = PasswordUtils.hashPassword(UUID.randomUUID().toString());
-            }else {
+//                token = PasswordUtil.hashPassword(UUID.randomUUID().toString());
+                token = JWTUtil.createToken(user.getUsername(), expireDate);
+            } else {
                 token = tokenEntity.getToken();
             }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ValidationException;
+import java.io.UnsupportedEncodingException;
 import java.net.BindException;
 
 /**
@@ -60,6 +61,15 @@ public class GlobalExceptionHandler {
         return new ResultInfo<>
                 (CodeEnum.SYS_ERROR_D0101.getCode(),
                         CodeEnum.SYS_ERROR_D0101.getDescription());
+    }
+
+    /**
+     * JWT工具类异常
+     */
+    @ExceptionHandler(UnsupportedEncodingException.class)
+    public ResultInfo<Object> unsupportedEncodingException(UnsupportedEncodingException ex) {
+        log.info("JWT工具类异常 , 不支持的编码 , 错误信息: {}" , ex.getMessage());
+        return new ResultInfo<>(CodeEnum.ENCODE_ERROR.getCode(), CodeEnum.ENCODE_ERROR.getDescription());
     }
 
 
