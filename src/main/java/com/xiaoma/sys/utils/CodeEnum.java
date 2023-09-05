@@ -185,7 +185,8 @@ public enum CodeEnum {
     SERVICE_ERROR_C0502("C0502", "语音提醒服务失败"),
     SERVICE_ERROR_C0503("C0503", "邮件提醒服务失败"),
     SYS_ERROR_D0100("D0100", "系统错误"),
-    SYS_ERROR_D0101("D0101", "系统参数校验错误");
+    SYS_ERROR_D0101("D0101", "系统参数校验错误"),
+    SYS_ERROR_D0102("D0102" , "TOKEN异常");
 
 
     private final String code;

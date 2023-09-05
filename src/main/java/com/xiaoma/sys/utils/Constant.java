@@ -10,4 +10,9 @@ public interface Constant {
      */
     String TOKEN_HEADER = "token";
 
+    /**
+     * 请求头 - Authorization
+     */
+    String AUTHORIZATION = "Authorization";
+
 }
