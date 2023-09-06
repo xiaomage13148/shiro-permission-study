@@ -1,9 +1,10 @@
 package com.xiaoma.sys.security;
 
 
-import com.xiaoma.sys.exception.MyException;
+import com.alibaba.fastjson.JSON;
 import com.xiaoma.sys.utils.CodeEnum;
 import com.xiaoma.sys.utils.Constant;
+import com.xiaoma.sys.utils.ResultInfo;
 import com.xiaoma.sys.utils.StringUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
@@ -14,6 +15,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class JWTFilter extends AuthenticatingFilter {
 
@@ -43,34 +45,36 @@ public class JWTFilter extends AuthenticatingFilter {
 
 
     /**
-     * 是否允许访问，如果带有 token，则对 token 进行检查，否则直接通过
+     * 是否允许访问
      */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         HttpServletRequest req = (HttpServletRequest) request;
-        String token = getToken(req);
-        // 检查token是否存在
-        if (token != null) {
-            // 检查token是否正确
-            try {
-                executeLogin(request , response);
-                return true;
-            } catch (Exception e) {
-                // token异常
-                throw new MyException(CodeEnum.SYS_ERROR_D0102.getCode());
-            }
+        // 预检请求 , 放行
+        if (req.getMethod().equals(RequestMethod.OPTIONS.name())){
+            return true;
         }
-        // 不携带token，直接通过
-        // TODO 可能存在问题
-        return true;
+        return false;
     }
 
     /**
      * 处理被 isAccessAllowed 方法判定为拒绝访问的请求
      */
     @Override
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        // TODO onAccessDenied 具体内容未完成
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws IOException {
+        //获取请求token，如果token不存在，直接返回401
+        String token = getToken((HttpServletRequest) request);
+        if(StringUtils.isNullOrEmpty(token)){
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.setContentType("application/json;charset=utf-8");
+            httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
+            // TODO 跨域问题
+//            httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
+            String json = JSON.toJSONString(new ResultInfo<Object>(CodeEnum.SYS_ERROR_D0102.getCode(), CodeEnum.SYS_ERROR_D0102.getDescription()));
+            httpResponse.getWriter().print(json);
+            return false;
+        }
+        // TODO 登录操作
         return false;
     }
 
