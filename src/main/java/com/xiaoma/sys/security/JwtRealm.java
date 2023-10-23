@@ -1,8 +1,15 @@
 package com.xiaoma.sys.security;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.xiaoma.sys.entity.SysSuperAdminEntity;
+import com.xiaoma.sys.entity.SysTokenEntity;
+import com.xiaoma.sys.entity.SysUserEntity;
 import com.xiaoma.sys.exception.MyException;
+import com.xiaoma.sys.security.userInfo.UserDetail;
+import com.xiaoma.sys.service.SysSuperAdminService;
+import com.xiaoma.sys.service.SysTokenService;
+import com.xiaoma.sys.service.SysUserService;
 import com.xiaoma.sys.utils.CodeEnum;
-import com.xiaoma.sys.utils.JWTUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -10,8 +17,21 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JwtRealm extends AuthorizingRealm {
+
+    @Autowired
+    private SysTokenService sysTokenService;
+
+    @Autowired
+    private SysUserService sysUserService;
+
+    @Autowired
+    private SysSuperAdminService sysSuperAdminService;
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -32,26 +52,29 @@ public class JwtRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        String accessToken = (String) token.getPrincipal();
+        // 获取token对应的实体类
+        SysTokenEntity tokenEntity = sysTokenService.getOne(Wrappers.lambdaQuery(SysTokenEntity.class).eq(SysTokenEntity::getToken, accessToken));
 
-        String credentials = (String) token.getCredentials();
-        String username = null;
-
-        try {
-            Boolean verify = JWTUtil.verify(credentials);
-            // 校验不通过
-            if (!verify) {
-                throw new MyException(CodeEnum.SYS_ERROR_D0103.getCode());
-            }
-
-           username = JWTUtil.getClaim(credentials, JWTUtil.getUsername());
-        }catch (Exception e) {
-            throw new AuthenticationException("shiro认证异常");
+        // Token 失效
+        if (tokenEntity == null || tokenEntity.getExpireDate().getTime() < System.currentTimeMillis()) {
+            throw new MyException(CodeEnum.SYS_ERROR_D0106.getCode());
         }
 
-        return new SimpleAuthenticationInfo(
-                username, //用户名
-                credentials, //凭证
-                getName()  //realm name
-        );
+        Long userId = tokenEntity.getUserId();
+
+        SysUserEntity userEntity = sysUserService.getById(userId);
+
+        UserDetail userDetail = new UserDetail();
+        BeanUtils.copyProperties(userEntity, userDetail);
+
+        // 检查是否是超级管理员
+        SysSuperAdminEntity superAdminEntity = sysSuperAdminService.getOne(Wrappers.lambdaQuery(SysSuperAdminEntity.class).eq(SysSuperAdminEntity::getUserId, userDetail.getId()));
+        userDetail.setIsSuperAdmin(superAdminEntity != null);
+
+        // TODO 如果是超级管理员,加载出所有的路由和权限
+
+        // TODO 缺少路由加载和权限
+        return new SimpleAuthenticationInfo(userDetail, accessToken, getName());
     }
 }

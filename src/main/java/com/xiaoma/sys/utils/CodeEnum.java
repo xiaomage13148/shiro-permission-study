@@ -186,9 +186,11 @@ public enum CodeEnum {
     SERVICE_ERROR_C0503("C0503", "邮件提醒服务失败"),
     SYS_ERROR_D0100("D0100", "系统错误"),
     SYS_ERROR_D0101("D0101", "系统参数校验错误"),
-    SYS_ERROR_D0102("D0102", "TOKEN异常"),
+    SYS_ERROR_D0102("D0102", "TOKEN为空"),
     SYS_ERROR_D0103("D0103", "TOKEN校验异常"),
-    SYS_ERROR_D0104("D0104", "系统认证失败");
+    SYS_ERROR_D0104("D0104", "系统认证失败"),
+    SYS_ERROR_D0105("D0105", "RESPONSE写入异常"),
+    SYS_ERROR_D0106("D0106", "TOKEN过期");
 
 
     private final String code;
