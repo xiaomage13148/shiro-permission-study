@@ -3,8 +3,8 @@ package com.xiaoma.sys.utils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.xiaoma.sys.entity.SysUserEntity;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -17,13 +17,17 @@ import java.util.Map;
  * @author mjh
  */
 public class JWTUtil {
-
-//    private static final Long EXPIRE = 3600 * 12 * 1000L;
-
     /**
      * token秘钥
      */
     private static final String SECRET = "JWT+SHIRO";
+
+    /**
+     * 用户
+     */
+    private static final String USERNAME = "username";
+
+
 
     /**
      * 生成token
@@ -32,8 +36,6 @@ public class JWTUtil {
      */
     public static String createToken(String username, Date expiredDate) throws UnsupportedEncodingException {
 
-        // 设置token过期时间
-//        Date expiredDate = new Date(System.currentTimeMillis() + EXPIRE);
 
         Map<String, Object> mapHeader = new HashMap<>();
         mapHeader.put("alg", "HS256");
@@ -42,7 +44,7 @@ public class JWTUtil {
         // 生成token
         return JWT.create()
                 .withHeader(mapHeader)
-                .withClaim("username", username)  // 私有声明
+                .withClaim(USERNAME, username)  // 私有声明
                 .withExpiresAt(expiredDate) // 过期时间
                 .withIssuedAt(new Date())  // 签发时间
                 .sign(Algorithm.HMAC256(SECRET)); // 签名
@@ -61,6 +63,22 @@ public class JWTUtil {
         }
     }
 
+    /**
+     * 获取Token中的信息
+     */
+    public static String getClaim(String token , String claim) {
+        try {
+            DecodedJWT jwt = JWT.decode(token);
+            return jwt.getClaim(claim).asString();
+        }catch (JWTDecodeException e) {
+            return null;
+        }
+    }
 
-
+    /**
+     * 获取用户username
+     */
+    public static String getUsername() {
+        return USERNAME;
+    }
 }

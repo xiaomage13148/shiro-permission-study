@@ -9,7 +9,7 @@ public enum CodeEnum {
     EMPTY_ERROR("00404", "参数为空异常"),
     DIRTY_DATA_ERROR("00600", "脏数据异常"),
     SECURITY_MANAGEMENT_ERROR("00601", "安全管理器异常"),
-    ENCODE_ERROR("00602" , "编码异常") ,
+    ENCODE_ERROR("00602", "编码异常"),
     USER_ERROR_0001("A0001", "用户端错误"),
     USER_ERROR_A0100("A0100", "用户注册错误"),
     USER_ERROR_A0101("A0101", "用户未同意隐私协议"),
@@ -186,7 +186,9 @@ public enum CodeEnum {
     SERVICE_ERROR_C0503("C0503", "邮件提醒服务失败"),
     SYS_ERROR_D0100("D0100", "系统错误"),
     SYS_ERROR_D0101("D0101", "系统参数校验错误"),
-    SYS_ERROR_D0102("D0102" , "TOKEN异常");
+    SYS_ERROR_D0102("D0102", "TOKEN异常"),
+    SYS_ERROR_D0103("D0103", "TOKEN校验异常"),
+    SYS_ERROR_D0104("D0104", "系统认证失败");
 
 
     private final String code;

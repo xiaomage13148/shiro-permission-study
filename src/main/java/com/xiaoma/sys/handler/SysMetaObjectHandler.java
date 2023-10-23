@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 /**
  * @author mjh
  */
-//@Slf4j
 @Component
 public class SysMetaObjectHandler implements MetaObjectHandler {
 

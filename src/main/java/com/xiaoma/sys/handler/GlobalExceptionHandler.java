@@ -4,6 +4,7 @@ import com.xiaoma.sys.exception.MyException;
 import com.xiaoma.sys.utils.CodeEnum;
 import com.xiaoma.sys.utils.ResultInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,8 +23,6 @@ import java.net.BindException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-//    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
     /**
      * 处理自定义异常
      */
@@ -31,6 +30,15 @@ public class GlobalExceptionHandler {
     public ResultInfo<Object> myException(MyException ex) {
         log.info("自定义异常 , 错误信息: {}", ex.getMsg());
         return new ResultInfo<>(ex.getCode(), ex.getMsg());
+    }
+
+    /**
+     * shiro认证异常
+     */
+    @ExceptionHandler(AuthenticationException.class)
+    public ResultInfo<Object> authenticationException(AuthenticationException ex) {
+        log.info("shiro认证异常 , 错误信息: {}", ex.getMessage());
+        return new ResultInfo<>(CodeEnum.SYS_ERROR_D0104.getCode(), CodeEnum.SYS_ERROR_D0104.getDescription());
     }
 
     /**
@@ -68,7 +76,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(UnsupportedEncodingException.class)
     public ResultInfo<Object> unsupportedEncodingException(UnsupportedEncodingException ex) {
-        log.info("JWT工具类异常 , 不支持的编码 , 错误信息: {}" , ex.getMessage());
+        log.info("JWT工具类异常 , 不支持的编码 , 错误信息: {}", ex.getMessage());
         return new ResultInfo<>(CodeEnum.ENCODE_ERROR.getCode(), CodeEnum.ENCODE_ERROR.getDescription());
     }
 

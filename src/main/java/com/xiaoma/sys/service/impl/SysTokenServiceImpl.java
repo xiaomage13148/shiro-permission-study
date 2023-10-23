@@ -49,7 +49,6 @@ public class SysTokenServiceImpl extends ServiceImpl<SysTokenMapper, SysTokenEnt
 
         if (ObjectUtils.isEmpty(tokenEntity)) {
             // 没有生成过token
-//            token = PasswordUtil.hashPassword(UUID.randomUUID().toString());
             token = JWTUtil.createToken(user.getUsername(), expireDate);
             SysTokenEntity sysTokenEntity = new SysTokenEntity();
             sysTokenEntity.setUserId(user.getId());
@@ -69,7 +68,6 @@ public class SysTokenServiceImpl extends ServiceImpl<SysTokenMapper, SysTokenEnt
             // 判断是否过期
             if (tokenEntity.getExpireDate().getTime() < System.currentTimeMillis()) {
                 // 已经过期 , 重新生成token
-//                token = PasswordUtil.hashPassword(UUID.randomUUID().toString());
                 token = JWTUtil.createToken(user.getUsername(), expireDate);
             } else {
                 token = tokenEntity.getToken();
