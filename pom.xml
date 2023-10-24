@@ -104,6 +104,12 @@
             <version>3.2.0</version>
         </dependency>
 
+        <!-- p6spySQL监控工具 TODO p6spySQL监控工具 配置存在问题 -->
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.9.1</version>
+        </dependency>
 
     </dependencies>
 

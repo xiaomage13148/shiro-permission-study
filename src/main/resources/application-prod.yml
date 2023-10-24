@@ -2,7 +2,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://192.168.56.3:3306/xiaomage_permission?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://192.168.189.3:3306/xiaomage_permission?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
       username: root
       password: wo610783
       #      初始化时的连接数
@@ -39,15 +39,3 @@ spring:
           config:
             #            是否允许多条SQL语句同时执行
             multi-statement-allow: true
-        slf4j:
-          enabled: true
-          statement-create-after-log-enabled: false
-          statement-log-enabled: false
-          statement-executable-sql-log-enable: true
-          statement-log-error-enabled: true
-          result-set-log-enabled: false
-logging:
-  level:
-    druid:
-      sql:
-        Statement: DEBUG
